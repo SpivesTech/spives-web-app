@@ -11,9 +11,8 @@ const LandingPage = () => {
         <Helmet>
           <title>Spives - Home</title>
           <meta name="description" content="Spives - Home" />
-        </Helmet>
-  
-        <Header />
+        </Helmet>        <Header />
+        
       </>
     );
   }
