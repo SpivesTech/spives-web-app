@@ -1,92 +1,87 @@
 .header-navbar {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    justify-content: flex-start;
-    min-width: 1920px;
-    height: 72px;
-    padding-right: 47px;
-    padding-left: 47px;
-  }
-  .feature-section {
-    box-sizing: border-box;
-    flex: 0 0 auto;
-    width: 71.19%;
-    padding-top: 24px;
-    padding-bottom: 20px;
-  }
-  .image-container {
-    box-sizing: border-box;
-    display: block;
-    width: 129px;
-    max-width: initial;
-    height: 28px;
-    border: none;
-    object-fit: cover;
-  }
-  .feature-panel {
-    box-sizing: border-box;
-    display: flex;
-    flex: 0 0 auto;
-    flex-direction: row;
-    gap: 8px;
-    align-items: center;
-    justify-content: space-between;
-    width: 28.81%;
-    height: 72px;
-    padding-right: 25px;
-    padding-left: 15px;
-  }
-  .flex-container-with-text-aligned {
-    display: flex;
-    flex: 0 0 auto;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-  }
-  .feature-title {
-    flex: 0 0 auto;
-    padding: 0;
-    margin: 0;
-    font: 400 18px Montserrat, sans-serif;
-    color: black;
-  }
-  .feature-description-text-style {
-    flex: 0 0 auto;
-    padding: 0;
-    margin: 0;
-    margin-left: 32px;
-    font: 400 18px Montserrat, sans-serif;
-    color: black;
-  }
-  .primary-button-style {
-    box-sizing: border-box;
-    display: block;
-    flex: 0 0 auto;
-    width: 88px;
-    min-width: 88px;
-    height: 40px;
-    font: 700 16px Montserrat, sans-serif;
-    color: white;
-    cursor: pointer;
-    background: #000066;
-    border: none;
-    border-radius: 4px;
-  }
-  .orange-button {
-    box-sizing: border-box;
-    display: block;
-    flex: 0 0 auto;
-    width: 136px;
-    min-width: 136px;
-    height: 40px;
-    margin-left: 28px;
-    font: 700 16px Montserrat, sans-serif;
-    color: #03033e;
-    cursor: pointer;
-    background: #ff9434;
-    border: none;
-    border-radius: 4px;
-  }
-  
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+  padding-right: 47px;
+  padding-left: 47px;
+  background-color: white;
+}
+
+.feature-section {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  padding-top: 24px;
+  padding-bottom: 20px;
+}
+
+.image-container {
+  box-sizing: border-box;
+  display: block;
+  width: 129px;
+  max-width: initial;
+  height: 28px;
+  border: none;
+  object-fit: cover;
+}
+
+.feature-panel {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 25px;
+  padding-left: 15px;
+}
+
+.flex-container-with-text-aligned {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.feature-title, .feature-description-text-style {
+  flex: 0 0 auto;
+  padding: 0;
+  margin: 0;
+  font: 400 18px Montserrat, sans-serif;
+  color: black;
+}
+
+.feature-title {
+  margin-right: 32px;
+}
+
+.primary-button-style {
+  box-sizing: border-box;
+  display: block;
+  width: 88px;
+  min-width: 88px;
+  height: 40px;
+  font: 700 16px Montserrat, sans-serif;
+  color: white;
+  cursor: pointer;
+  background: #000066;
+  border: none;
+  border-radius: 4px;
+}
+
+.orange-button {
+  box-sizing: border-box;
+  display: block;
+  width: 136px;
+  min-width: 136px;
+  height: 40px;
+  margin-left: 28px;
+  font: 700 16px Montserrat, sans-serif;
+  color: #03033e;
+  cursor: pointer;
+  background: #ff9434;
+  border: none;
+  border-radius: 4px;
+}
