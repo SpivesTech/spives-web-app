@@ -3,12 +3,22 @@ import { useRoutes } from 'react-router-dom';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import LandingPage from './pages/LandingPage';
+import Login from './pages/auth/Login';
+import Signup from './pages/auth/Signup';
+import Dashboard from './pages/dashboard';
+import PrivateRoute from './components/PrivateRoute';
 
-function ProjectRoutes ()  {
+function ProjectRoutes() {
   let element = useRoutes([
     { path: '/', element: <Home /> },
+    { path: '/landing', element: <LandingPage /> },
+    { path: '/login', element: <Login /> },
+    { path: '/signup', element: <Signup /> },
+    { 
+      path: '/dashboard/*', 
+      element: <PrivateRoute><Dashboard /></PrivateRoute> 
+    },
     { path: '*', element: <NotFound /> },
-    { path: '/landingPage', element: <LandingPage /> },
   ]);
 
   return element;
