@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Box, VStack, FormControl, FormLabel, Input, Button, Heading, Text, Link } from '@chakra-ui/react';
+import { Card, CardHeader, CardBody, CardFooter } from '@chakra-ui/react'
 import { Link as RouterLink } from 'react-router-dom';
 
 const Login = () => {
@@ -15,8 +16,12 @@ const Login = () => {
   return (
     <Box maxWidth="400px" margin="auto" mt={8}>
       <VStack spacing={4} align="stretch">
-        <Heading>Login</Heading>
-        <form onSubmit={handleSubmit}>
+        
+        <Card>
+          <CardHeader><Heading>Welcome Back</Heading>
+        </CardHeader>
+          <CardBody>
+          <form onSubmit={handleSubmit}>
           <FormControl id="email" isRequired>
             <FormLabel>Email address</FormLabel>
             <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
@@ -29,12 +34,16 @@ const Login = () => {
             Sign In
           </Button>
         </form>
-        <Text mt={4}>
+          </CardBody>
+          <CardFooter><Text mt={4}>
           Don't have an account?{' '}
           <Link as={RouterLink} to="/signup" color="blue.500">
             Sign up
           </Link>
-        </Text>
+        </Text></CardFooter>
+        </Card>
+        
+        
       </VStack>
     </Box>
   );
