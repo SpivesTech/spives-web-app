@@ -9,7 +9,7 @@ function App() {
     <ChakraProvider theme={theme}>
       <Router>
         <Box textAlign="center" fontSize="xl">
-          <Home />
+          <ProjectRoutes />
         </Box>
       </Router>
     </ChakraProvider>
