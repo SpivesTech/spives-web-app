@@ -2,12 +2,9 @@ import React from 'react';
 import {
   Box,
   Flex,
-  Heading,
   Text,
   Button,
   Image,
-  VStack,
-  HStack,
 } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
 
@@ -51,7 +48,7 @@ const HeroSection = () => {
           </Button>
         </Flex>
       </Box>
-      <Box mx="auto" zIndex={2} alignSelf="flex-end">
+      <Box ms="auto" zIndex={2} alignSelf="flex-end" pe="58px">
         <Image src="/images/hero-stats.svg" mx="auto" />
         <Image src="images/SpivesBall.png" width={500} />
       </Box>
