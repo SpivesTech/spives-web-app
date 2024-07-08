@@ -19,7 +19,9 @@ function Navbar() {
     <Box className="header-navbar" position="sticky" top="0" zIndex="1000" bg="white">
       <Flex alignItems="center" justifyContent="space-between" wrap="wrap" p={4}>
         <Box className="feature-section">
-          <Image src="/images/spives.png" className="image-container" alt="spives logo" />
+          <Link to="/">
+            <Image src="/images/spives.png" className="image-container" alt="spives logo" />
+          </Link>
         </Box>
 
         {/* Desktop Menu */}
