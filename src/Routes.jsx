@@ -7,11 +7,13 @@ import Login from './pages/auth/Login';
 import Signup from './pages/auth/Signup';
 import Dashboard from './pages/dashboard';
 import PrivateRoute from './components/PrivateRoute';
+import TalentsPage from './pages/Talents';
 
 function ProjectRoutes() {
   let element = useRoutes([
     { path: '/', element: <Home /> },
     { path: '/landing', element: <LandingPage /> },
+     {path: '/talents', element: <TalentsPage /> },
     { path: '/login', element: <Login /> },
     { path: '/signup', element: <Signup /> },
     { 
