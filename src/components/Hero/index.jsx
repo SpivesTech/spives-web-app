@@ -48,9 +48,8 @@ const HeroSection = () => {
           </Button>
         </Flex>
       </Box>
-      <Box ms="auto" zIndex={2} alignSelf="flex-end" pe="58px">
-        <Image src="/images/hero-stats.svg" mx="auto" />
-        <Image src="images/SpivesBall.png" width={500} />
+      <Box ms="auto" zIndex={2} textAlign="end" alignSelf="flex-end" pe="58px" border="1px solid red" position="relative">
+        <Image src="images\spiveshomemockup.png" ms="auto" width={620} border="1px solid red"/>
       </Box>
     </Flex>
   );
