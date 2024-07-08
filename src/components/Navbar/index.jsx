@@ -2,82 +2,81 @@ import React from 'react';
 import {
   Box,
   Flex,
-  IconButton,
-  Button,
-  useDisclosure,
-  VStack,
-  HStack,
   Image,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalCloseButton,
-  ModalBody,
+  Button,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  IconButton,
+  HStack,
 } from '@chakra-ui/react';
-import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
+import { HamburgerIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
-import './style.css';
 
 function Navbar() {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
   return (
-    <Box className="header-navbar">
-      <Flex alignItems="center" justifyContent="space-between" wrap="wrap">
+    <Box className="header-navbar" position="sticky" top="0" zIndex="1000" bg="white">
+      <Flex alignItems="center" justifyContent="space-between" wrap="wrap" p={4}>
         <Box className="feature-section">
           <Image src="/images/spives.png" className="image-container" alt="spives logo" />
         </Box>
-        <Flex alignItems="center" display={{ base: 'block', md: 'none' }}>
-          <IconButton
-            size="md"
-            icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-            aria-label="Open Menu"
-            onClick={isOpen ? onClose : onOpen}
-          />
-        </Flex>
-        <Flex
-          direction={{ base: 'column', md: 'row' }}
-          display={{ base: 'none', md: 'flex' }}
-          width={{ base: 'full', md: 'auto' }}
-          alignItems="center"
-          flexGrow={1}
-          mt={{ base: 4, md: 0 }}
-          className="feature-panel"
-          justifyContent="flex-end"
-        >
-          <Box className="flex-container-with-text-aligned">
-            <Link to="/" className="feature-title">Features</Link>
-            <Link to="/pricing" className="feature-description-text-style">Pricing</Link>
-          </Box>
-          <Box className="flex-container-with-text-aligned">
-            <Button as={Link} to="/login" className="primary-button-style">Login</Button>
-            <Button as={Link} to="/signup" className="orange-button">Get Started</Button>
-          </Box>
-        </Flex>
-      </Flex>
 
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalCloseButton />
-          <ModalBody>
-            <VStack spacing={4} align="center" mt={8}>
-              <HStack>
-                <Link to="/" onClick={onClose}>Features</Link>
-              </HStack>
-              <HStack>
-                <Link to="/pricing" onClick={onClose}>Pricing</Link>
-              </HStack>
-              <HStack>
-                <Button as={Link} to="/login" className="primary-button-style" onClick={onClose}>Login</Button>
-              </HStack>
-              <HStack>
-                <Button as={Link} to="/signup" className="orange-button" onClick={onClose}>Get Started</Button>
-              </HStack>
-            </VStack>
-          </ModalBody>
-        </ModalContent>
-      </Modal>
+        {/* Desktop Menu */}
+        <Flex
+          display={{ base: 'none', md: 'flex' }}
+          alignItems="center"
+          justifyContent="flex-end"
+          flexGrow={1}
+        >
+          <HStack spacing={4} mr={4}>
+            <Link to="/" className="feature-title">Clubs</Link>
+            <Link to="/" className="feature-title">Coaches</Link>
+            <Link to="/talents" className="feature-title">Talents</Link>
+            <Link to="/pricing" className="feature-description-text-style">Pricing</Link>
+          </HStack>
+          <HStack spacing={2}>
+            <Button 
+              as={Link} 
+              to="/login" 
+              bg="#000066"
+              color="white"
+              _hover={{ bg: '#000088' }}
+            >
+              Login
+            </Button>
+            <Button 
+              as={Link} 
+              to="/signup" 
+              bg="#FF9434"
+              color="white"
+              _hover={{ bg: '#FFB434' }}
+            >
+              Get Started
+            </Button>
+          </HStack>
+        </Flex>
+
+        {/* Mobile Menu */}
+        <Box display={{ base: 'block', md: 'none' }}>
+          <Menu>
+            <MenuButton
+              as={IconButton}
+              aria-label='Options'
+              icon={<HamburgerIcon />}
+              variant='outline'
+            />
+            <MenuList>
+              <MenuItem as={Link} to="/">Clubs</MenuItem>
+              <MenuItem as={Link} to="/">Coaches</MenuItem>
+              <MenuItem as={Link} to="/">Talents</MenuItem>
+              <MenuItem as={Link} to="/pricing">Pricing</MenuItem>
+              <MenuItem as={Link} to="/login">Login</MenuItem>
+              <MenuItem as={Link} to="/signup">Get Started</MenuItem>
+            </MenuList>
+          </Menu>
+        </Box>
+      </Flex>
     </Box>
   );
 }
