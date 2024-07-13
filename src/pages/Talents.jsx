@@ -28,7 +28,7 @@ const TalentsPage = () => {
   }
 
   return (
-    <>
+    <div className="talents">
       <Helmet>
         <title>Talents | Spives</title>
       </Helmet>
@@ -86,7 +86,7 @@ const TalentsPage = () => {
           </VStack>
         </Container>
       </Box>
-    </>
+    </div>
   );
 };
 
