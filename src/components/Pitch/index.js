@@ -24,7 +24,7 @@ export const Pitch = ({ playerPositions }) => {
     ];
 
     return (
-        <Box position="relative">
+        <Box position="relative" height={"100%"}>
             <Image src="/assets/newpitch.png" alt="Football field" width="100%" height="100%" />
             {positions.map((pos) => (
                 <Image
