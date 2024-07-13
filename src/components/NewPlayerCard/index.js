@@ -7,7 +7,7 @@ const Player = {
     "age": 15,
     "image": "https://res.cloudinary.com/broomstick/image/upload/t_spives_watermark/v1713292025/talents/Agine_Prosper_lfnh2k.png",
     "mainPosition": "Defense",
-    "positions": "CAM,CDM,LAM",
+    "position": "CAM",
     "height": "",
     "weight": "53.4Kg",
     "club": "Future Kids FC",
@@ -21,7 +21,7 @@ const Player = {
 }
 
 export const NewPlayerCard = ({ player = Player }) => {
-    const positions = player.positions.split(',').map(position => position.trim())
+    const positions = player.position.split(/,\s*|\//).map(position => position.trim())
     const teamAbbreviation = player.club.split(' ').map(word => word[0]).join('')
     return (
         <Box
@@ -46,7 +46,7 @@ export const NewPlayerCard = ({ player = Player }) => {
                 <Grid p={1} columnGap={1} templateColumns={'65% 1fr'} borderRadius={5} minHeight={'60px'} backgroundColor={'#000066'} >
                     <Flex direction={'column'} backgroundColor={'white'} borderRadius={5} justifyContent={'space-between'} padding={3} >
                         <Box textAlign={'left'}>
-                            <Text fontSize={'md'} as='b'>{player.name}</Text>
+                            <Text fontSize={'md'} as='b'>{player.nickname}</Text>
                             <Text fontSize={'sm'}>{player.mainPosition}</Text>
                             <Text fontSize={'sm'}>14</Text>
                             <Text fontSize={'sm'}>Left Footer</Text>
@@ -65,8 +65,8 @@ export const NewPlayerCard = ({ player = Player }) => {
                             </Grid>
                         </HStack>
                     </Flex>
-                    <Box>
-                        <Pitch playerPositions={positions} />
+                    <Box height={"100%"}>
+                        <Pitch playerPositions={positions} height="100%" />
                     </Box>
                 </Grid>
             </VStack>
