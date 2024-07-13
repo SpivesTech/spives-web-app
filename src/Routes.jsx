@@ -8,7 +8,6 @@ import Signup from './pages/auth/Signup';
 import Dashboard from './pages/dashboard';
 import PrivateRoute from './components/PrivateRoute';
 import TalentsPage from './pages/Talents';
-import { NewPlayerCard } from './components/NewPlayerCard';
 
 function ProjectRoutes() {
   let element = useRoutes([
@@ -17,7 +16,6 @@ function ProjectRoutes() {
     { path: '/talents', element: <TalentsPage /> },
     { path: '/login', element: <Login /> },
     { path: '/signup', element: <Signup /> },
-    { path: '/newplayercard', element: <NewPlayerCard /> },
     {
       path: '/dashboard/*',
       element: (
