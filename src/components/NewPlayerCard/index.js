@@ -1,5 +1,6 @@
 import React from 'react'
 import { Grid, Flex, Box, VStack, HStack, Text, Image, Badge } from "@chakra-ui/react";
+import { Pitch } from '../Pitch';
 
 const Player = {
     "name": "Agine Prosper",
@@ -12,6 +13,7 @@ const Player = {
     "club": "Future Kids FC",
     "guardian": "",
     "coach": "Gideon",
+    "country": "Mozambique",
     "foot": "Right",
     "id": "a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11",
     "nickname": "The Wall",
@@ -20,6 +22,7 @@ const Player = {
 
 export const NewPlayerCard = ({ player = Player }) => {
     const positions = player.positions.split(',').map(position => position.trim())
+    const teamAbbreviation = player.club.split(' ').map(word => word[0]).join('')
     return (
         <Box
             borderWidth="1px"
@@ -33,8 +36,8 @@ export const NewPlayerCard = ({ player = Player }) => {
             <VStack align="stretch" >
                 <VStack justifyContent="space-between" p={2} backgroundImage={"/images/favicon2.png"} borderRadius={5} backgroundRepeat={'no-repeat'} backgroundSize={'cover'} backgroundPosition={'center center'} backgroundColor={'white'} >
                     <HStack justifyContent="space-between" w="100%">
-                        <Image src={player.country} alt="Country flag" maxWidth={'50px'} />
-                        <Image src={player.club} alt="Logo" maxWidth={'50px'} />
+                        {player.flag ? <Image src={player.flag} alt="Country flag" maxWidth={'50px'} /> : <Badge colorScheme="blue">{player.country}</Badge>}
+                        {player.clubLogo ? <Image src={player.clubLogo} alt="Logo" maxWidth={'50px'} /> : <Badge colorScheme="blue">{teamAbbreviation}</Badge>}
                     </HStack>
 
                     <Image src={player.image} alt="Player" />
@@ -50,9 +53,11 @@ export const NewPlayerCard = ({ player = Player }) => {
                         </Box>
                         <HStack justifyContent={'space-between'} alignItems={'center'} >
                             <Grid templateColumns={'1fr 1fr 1fr'} columnGap={1}>
-                                <Image src={`/assets/Positions/${positions[0]} spives.png`} alt="position1" boxSize={'30px'} />
-                                <Image src={`/assets/Positions/${positions[1]} spives.png`} alt="position1" boxSize={'30px'} />
-                                <Image src={`/assets/Positions/${positions[2]} spives.png`} alt="position1" boxSize={'30px'} />
+                                {
+                                    positions.map((position, index) => (
+                                        <Image key={index} src={`/assets/Positions/${position} spives.png`} alt={position} boxSize={'30px'} />
+                                    ))
+                                }
                             </Grid>
                             <Grid templateRows={'repeat(2 1fr'}>
                                 <Text fontSize={'xs'}>10</Text>
@@ -61,7 +66,7 @@ export const NewPlayerCard = ({ player = Player }) => {
                         </HStack>
                     </Flex>
                     <Box>
-                        <Image src="/assets/newpitch.png" alt="Logo" />
+                        <Pitch playerPositions={positions} />
                     </Box>
                 </Grid>
             </VStack>
