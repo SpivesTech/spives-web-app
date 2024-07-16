@@ -1,6 +1,10 @@
 .talents{
     font-family: Montserrat;
 }
+html{
+    margin: 0;
+    padding: 0;
+}
 html *{
     font-family: Montserrat;
     box-sizing: border-box;
@@ -10,4 +14,49 @@ body *{
 }
 h1, h2, h3, h4, h5, h6{
     font-family: Montserrat;
+}
+
+.login{
+    width: 100vw;
+    height: 120vh;
+    overflow: hidden;
+    margin-top: -50px;
+    padding-top: 50px;
+    background-image: url('../public/images/hero-bg.png');
+    background-position: center center ;
+    background-size: cover;
+    
+}
+
+.login:before{
+        content: "";
+        position: absolute;
+        left: 0; right: 0;
+        top: 0; bottom: 0;
+        background: rgba(0, 0, 102, 0.665);
+}
+.container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5%;
+    /* justify-content: center; */
+}
+
+.loginFooterBall{
+    width: 200px;
+    position: fixed;
+    right: -80px;
+    bottom: 0;
+}
+.login input{
+    background-color: #EBF1FE; 
+    color: white;
+}
+.login input::placeholder{
+    color: #BEBEFF;
 }
