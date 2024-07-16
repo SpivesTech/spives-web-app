@@ -2,7 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import ProjectRoutes from './Routes';
 import { ChakraProvider, theme, Box } from '@chakra-ui/react';
-import Home from './pages/Home';
+import './App.css'
+
+import "@fontsource/montserrat"; // Defaults to weight 400
 
 function App() {
   return (
