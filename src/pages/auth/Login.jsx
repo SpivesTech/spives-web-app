@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import {
   Box,
   Flex,
-  VStack,
   FormControl,
-  FormLabel,
   Input,
   Button,
   Heading,
@@ -12,12 +10,9 @@ import {
   Link,
   Card,
   CardBody,
-  CardFooter,
   Image,
-  Spacer,
 } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
-
 import '../../App.css';
 
 const Login = () => {
@@ -34,11 +29,14 @@ const Login = () => {
     <div className="login">
       <div className="container">
         <Flex color={'white'} direction={'column'} alignItems={'center'}>
-          <Flex marginBottom={'10px'}>
-            <Heading marginRight={'5px'}>Welcome</Heading>
-            <Heading color={'orange'}>Back</Heading>
+          <Flex marginBottom={'30px'}>
+            <Text fontSize={'6xl'} className="loginHeading" marginRight={'px'}>
+              Welcome <span> back</span>
+            </Text>
           </Flex>
-          <Text color={'white'}>Please login your account details</Text>
+          <Text fontSize={'sm'} color={'white'}>
+            Please login your account details
+          </Text>
         </Flex>
 
         <Box width="25%" minWidth={'300px'} marginTop={'50px'}>
@@ -61,13 +59,17 @@ const Login = () => {
                     placeholder="Password"
                   />
                 </FormControl>
-                <Flex justifyContent={'space-between'} my={4}>
-                  <Text color={'orange'} fontSize={'sm'}>
+                <Flex
+                  justifyContent={'space-between'}
+                  my={4}
+                  fontWeight={'bolder'}
+                >
+                  <Text color={'#FF9434'} fontSize={'xs'}>
                     <Link as={RouterLink} to="/signup">
                       Create Account
                     </Link>
                   </Text>
-                  <Text color={'blue'} fontSize={'sm'}>
+                  <Text color={'#000066'} fontSize={'xs'}>
                     <Link>Forgotten Password</Link>
                   </Text>
                 </Flex>

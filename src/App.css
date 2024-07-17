@@ -1,5 +1,18 @@
+@font-face {
+    font-family: 'Adumu';
+    src: url('../public/assets/fonts/adumu.ttf') format('truetype');
+}
+
+
+
 .talents{
     font-family: Montserrat;
+}
+.loginHeading, .loginHeading span {
+    font-family: 'Adumu';
+}
+.loginHeading span{
+    color: #FF9434;
 }
 html{
     margin: 0;
