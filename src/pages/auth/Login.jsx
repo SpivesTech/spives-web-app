@@ -30,11 +30,15 @@ const Login = () => {
       <div className="container">
         <Flex color={'white'} direction={'column'} alignItems={'center'}>
           <Flex marginBottom={'30px'}>
-            <Text fontSize={'6xl'} className="loginHeading" marginRight={'px'}>
+            <Text
+              fontSize={'3vmax'}
+              className="loginHeading"
+              marginRight={'px'}
+            >
               Welcome <span> back</span>
             </Text>
           </Flex>
-          <Text fontSize={'sm'} color={'white'}>
+          <Text fontSize={'2vmin'} color={'white'}>
             Please login your account details
           </Text>
         </Flex>
