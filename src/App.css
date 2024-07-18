@@ -66,7 +66,8 @@ h1, h2, h3, h4, h5, h6{
 }
 .login input{
     background-color: #EBF1FE; 
-    color: white;
+    color: #FF9434;
+    font-weight: bold;
 }
 .login input::placeholder{
     color: #BEBEFF;
