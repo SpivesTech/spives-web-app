@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Box,
   Flex,
   FormControl,
   Input,
   Button,
-  Heading,
   Text,
   Link,
   Card,
@@ -14,15 +14,26 @@ import {
 } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
 import '../../App.css';
+import axios from 'axios';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [user, setUser] = useState(null);
+  const endpoint = 'https://spives-backend.onrender.com/api/auth/users/login/';
+  const navigate = useNavigate();
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
-    // Implement login logic here
-    console.log('Login attempt with:', email, password);
+    //make a post request to this endpoint: https://spives-backend.onrender.com/api/auth/users/login/
+    // with body: { "email":"email@host.com", "password":"12345Password" }
+    // make a request to the endpoint with the email and password
+    // if the request is successful, redirect to the dashboard
+    // if the request is not successful, show an error message
+    const res = await axios.post(endpoint, { email, password });
+    sessionStorage.setItem('token', JSON.stringify(res.data.access_token));
+    navigate('/');
+    console.log('data', res.data.access_token);
   };
 
   return (
