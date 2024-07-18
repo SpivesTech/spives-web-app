@@ -15,6 +15,7 @@ import {
 import { Link as RouterLink } from 'react-router-dom';
 import '../../App.css';
 import axios from 'axios';
+import { jwtDecode } from 'jwt-decode';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -32,8 +33,11 @@ const Login = () => {
     // if the request is not successful, show an error message
     const res = await axios.post(endpoint, { email, password });
     sessionStorage.setItem('token', JSON.stringify(res.data.access_token));
-    navigate('/');
-    console.log('data', res.data.access_token);
+    const decoded = jwtDecode(res.data.access_token);
+    setUser(decoded);
+    const userRoute = `/dashboard/${decoded.user_id}`;
+    navigate(userRoute);
+    console.log('user', userRoute);
   };
 
   return (
