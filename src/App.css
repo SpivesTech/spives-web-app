@@ -29,10 +29,11 @@ h1, h2, h3, h4, h5, h6{
     font-family: Montserrat;
 }
 
-.login, .register{
+.fieldBG{
     width: 100vw;
-    height: auto;
     min-height: 100vh;
+    position: relative;
+    height: auto;
     overflow: hidden;
     background-image: url('../public/images/hero-bg.png');
     background-position: center center ;
@@ -40,13 +41,27 @@ h1, h2, h3, h4, h5, h6{
     
 }
 
-.login:before, .register:before{
+.fieldBG:before{
         content: "";
         position: absolute;
         left: 0; right: 0;
         top: 0; bottom: 0;
         background: rgba(0, 0, 102, 0.665);
 }
+.fieldBG:after{
+    content:"";
+    position: absolute;
+    background-image: url('../public/images/soccerball1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    bottom: 20px;
+    width: 150px;
+    height: 150px;
+    right: -50px;
+    z-index: 10000;
+}
+
 .container{
     position: relative;
     width: 100%;

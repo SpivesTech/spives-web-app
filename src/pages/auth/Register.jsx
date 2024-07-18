@@ -62,7 +62,7 @@ const Signup = () => {
 
   return (
     <div
-      className="register"
+      className="register fieldBG"
       style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}
     >
       <div
@@ -214,15 +214,14 @@ const Signup = () => {
             </CardBody>
           </Card>
         </Box>
-        <Image
+        {/* <Image
           src="/images/soccerball1.png"
           className="loginFooterBall"
           style={{
-            alignSelf: 'flex-end',
-            maxWidth: '100px',
+            maxWidth: '150px',
             marginTop: '1rem',
           }}
-        />
+        /> */}
       </div>
     </div>
   );

@@ -41,7 +41,7 @@ const Login = () => {
   };
 
   return (
-    <div className="login">
+    <div className="login fieldBG">
       <div className="container">
         <Flex color={'white'} direction={'column'} alignItems={'center'}>
           <Flex marginBottom={'30px'}>
@@ -105,7 +105,7 @@ const Login = () => {
             </CardBody>
           </Card>
         </Box>
-        <Image src="/images/soccerball1.png" className="loginFooterBall" />
+        {/* <Image src="/images/soccerball1.png" className="loginFooterBall" /> */}
       </div>
     </div>
   );
