@@ -89,3 +89,44 @@ h1, h2, h3, h4, h5, h6{
 .login input::placeholder, select::placeholder{
     color: #BEBEFF;
 }
+
+
+/* /////////// Position page styles begin here //////////// */
+.positionButton{
+    cursor: pointer;
+}
+.positionPage.container{
+   display: flex; 
+   align-items: center;
+}
+.positionButtonsGrid{
+    width: 60%;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    padding-bottom: 50px;
+}
+
+
+
+
+
+
+
+
+/* /////////////// Mobile view styles are below this line //////////////// */
+
+@media (max-width: 768px){
+    .positionButtonsGrid{
+        width: 100%;
+        grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    }
+  
+    .fieldBG:after{
+        width: 75px;
+        height: 75px;
+        bottom: 0;
+        right: -20px;
+        padding: 20px;
+    }
+}
