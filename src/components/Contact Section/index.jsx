@@ -12,7 +12,7 @@ const Contact = () => {
           <GridItem textAlign="center">
             <Icon as={EmailIcon} w={8} h={8} color="orange.400" />
             <Text fontSize="lg" fontWeight="bold" color="blue.700" mt={4}>Email</Text>
-            <Text fontSize="md" color="gray.600">support@spives.com</Text>
+            <Text fontSize="md" color="gray.600">support@gospives.com</Text>
           </GridItem>
           <GridItem textAlign="center">
             <Icon as={PhoneIcon} w={8} h={8} color="orange.400" />
@@ -22,7 +22,7 @@ const Contact = () => {
           <GridItem textAlign="center">
             <Icon as={AtSignIcon} w={8} h={8} color="orange.400" />
             <Text fontSize="lg" fontWeight="bold" color="blue.700" mt={4}>Office</Text>
-            <Text fontSize="md" color="gray.600">123 Main Street, New York, NY 10001</Text>
+            <Text fontSize="md" color="gray.600">everywhere a football is being kicked around</Text>
           </GridItem>
         </Grid>
         <Box as="form" maxW="container.md" mx="auto">

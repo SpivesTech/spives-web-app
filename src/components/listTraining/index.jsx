@@ -4,7 +4,7 @@ import React, { Suspense } from "react";
 const data = [
   { trainingImage: "images/img_training_image.png", trainingText: "training", scheduleText: "Schedule" },
   { trainingImage: "images/img_spivesboy1.png", trainingText: "player", scheduleText: "management" },
-  { trainingImage: "images/img_small_pitch1.png", trainingText: "tactics", scheduleText: "& formations" },
+  { trainingImage: "images/img_small_pitch1.png", trainingText: "player", scheduleText: "& profiles" },
 ];
 
 export default function LandingPageListTraining({ ...props }) {

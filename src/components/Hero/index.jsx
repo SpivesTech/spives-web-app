@@ -27,29 +27,27 @@ const HeroSection = () => {
         zIndex: 1,
       }}
     >
-      <Box position="relative" zIndex={2}>
-        <Image src="/images/hero-title.svg" />
-        <Text
-          color="white"
-          textAlign="start"
-          ms="58px"
-          fontSize="30px"
-          fontWeight="semibold"
-          my={4}
-        >
-          Streamline Your Football Club <br /> Management with{' '}
-          <Text as="span" color="#FF9434">
-            Spives
+      <Box position="relative" zIndex={2} ms="58px" >
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+          <Image src="/images/hero-title.svg" width={380} />
+          <Text
+            color="white"
+            fontSize="30px"
+            fontWeight="semibold"
+            textAlign="start"
+            width="36vw"
+          >
+            put your profile one step ahead. 
+            create a <Text as="span" color="#FF9434">player card</Text> now 
+            
           </Text>
-        </Text>
-        <Flex>
-          <Button textAlign="start" as={RouterLink} ms="58px">
+          <Button as={RouterLink} mt={4}>
             Get Started
           </Button>
-        </Flex>
+        </div>
       </Box>
-      <Box ms="auto" zIndex={2} textAlign="end" alignSelf="flex-end" pe="58px" position="relative">
-        <Image src="images\spiveshomemockup.png" ms="auto" width={620}/>
+      <Box ms="auto" zIndex={2} textAlign="end" alignSelf="flex-end" pe="58px" position="relative" width="40vw">
+        <Image src="images\SpivesPlayerCardHome.png" mb="50px" ms="auto" width="full"/>
       </Box>
     </Flex>
   );
