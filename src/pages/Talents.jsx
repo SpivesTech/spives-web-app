@@ -13,8 +13,8 @@ import {
   Text
 } from '@chakra-ui/react';
 import Navbar from '../components/Navbar';
-import PlayerCard from '../components/PlayerCards/PlayerCard';
 import playerData from '../components/PlayerCards/data';
+import { NewPlayerCard } from '../components/NewPlayerCard';
 
 const TalentsPage = () => {
   const [data, setData] = useState(null);
@@ -28,7 +28,7 @@ const TalentsPage = () => {
   }
 
   return (
-    <>
+    <div className="talents">
       <Helmet>
         <title>Talents | Spives</title>
       </Helmet>
@@ -41,9 +41,7 @@ const TalentsPage = () => {
                 <option value="left">Left</option>
                 <option value="right">Right</option>
               </Select>
-              <Select placeholder="Age">
-                {/* Add age options */}
-              </Select>
+              <Select placeholder="Age">{/* Add age options */}</Select>
               <Select placeholder="Position">
                 {/* Add position options */}
               </Select>
@@ -52,19 +50,18 @@ const TalentsPage = () => {
             <Button colorScheme="blue">Update</Button>
           </Flex>
 
-          <Grid 
-        templateColumns={{
-          base: "repeat(1, 1fr)",
-          sm: "repeat(2, 1fr)",
-          md: "repeat(4, 1fr)",
-          lg: "repeat(5, 1fr)"
-        }}
-        gap={6}
-      >
-        {data.map((player, index) => (
-          <PlayerCard key={index} player={player} />
-        ))}
-      </Grid>
+          <Grid
+            templateColumns={{
+              base: 'repeat(1, 1fr)',
+              sm: 'repeat(2, 1fr)',
+              md: 'repeat(4, 1fr)',
+            }}
+            gap={6}
+          >
+            {data.map((player, index) => (
+              <NewPlayerCard key={index} player={player} />
+            ))}
+          </Grid>
 
           <Flex justifyContent="center" mt={8}>
             <Button mr={2}>Back</Button>
@@ -76,7 +73,9 @@ const TalentsPage = () => {
         <Container maxW="container.xl">
           <VStack spacing={4} align="stretch">
             <Text fontWeight="bold">Stay Informed. Join Now.</Text>
-            <Text>Sign up for our newsletter to receive the latest updates.</Text>
+            <Text>
+              Sign up for our newsletter to receive the latest updates.
+            </Text>
             <Flex>
               <Input placeholder="Your Email Address" mr={2} />
               <Button colorScheme="blue">Subscribe</Button>
@@ -87,8 +86,8 @@ const TalentsPage = () => {
           </VStack>
         </Container>
       </Box>
-    </>
+    </div>
   );
-}
+};
 
 export default TalentsPage;
