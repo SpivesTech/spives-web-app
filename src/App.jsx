@@ -3,6 +3,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import ProjectRoutes from './Routes';
 import { ChakraProvider, theme, Box } from '@chakra-ui/react';
 import Home from './pages/Home';
+import CoachProfileSection from './components/Coach Profile';
 
 function App() {
   return (
