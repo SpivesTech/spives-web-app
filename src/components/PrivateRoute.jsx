@@ -1,8 +1,11 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
+import { jwtDecode } from 'jwt-decode';
 
 const PrivateRoute = ({ children }) => {
-  const isAuthenticated = /* Your authentication logic here */ false;
+  const isAuthenticated = jwtDecode(sessionStorage.getItem('token'))
+    ? true
+    : false;
 
   return isAuthenticated ? children : <Navigate to="/login" />;
 };
