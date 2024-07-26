@@ -9,6 +9,8 @@ import Dashboard from './pages/dashboard';
 import PrivateRoute from './components/PrivateRoute';
 import TalentsPage from './pages/Talents';
 import PositionSelect from './pages/auth/postionSelect';
+import Onboarding from './pages/auth/Onboarding';
+import OnboardingDoc from './pages/auth/OnboardingDoc';
 
 function ProjectRoutes() {
   let element = useRoutes([
@@ -18,6 +20,8 @@ function ProjectRoutes() {
     { path: '/login', element: <Login /> },
     { path: '/signup', element: <Signup /> },
     { path: '/positionSelect', element: <PositionSelect /> },
+    { path: '/onboarding', element: <Onboarding /> },
+    { path: '/onboardingDoc', element: <OnboardingDoc /> },
     {
       path: '/dashboard/*',
       element: (
