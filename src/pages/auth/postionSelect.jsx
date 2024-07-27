@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Grid, Image, Box, Icon, Text, Button } from '@chakra-ui/react';
 import { CheckCircleIcon } from '@chakra-ui/icons';
+import { useMainStore } from '../../mainStore';
 
 const PositionSelect = () => {
   const positions = [
@@ -28,8 +29,18 @@ const PositionSelect = () => {
   ];
 
   const [checkedPositions, setCheckedPositions] = useState({});
+  const [selectedPositions, setSelectedPositions] = useState([]);
+  const { user, setUser } = useMainStore();
 
-  const handleClick = position => {
+  const handlePageSubmit = async () => {
+    try {
+      await setUser({ ...user, positions: selectedPositions });
+    } catch (error) {
+      console.error('Failed to update positions:', error);
+    }
+  };
+
+  const handleClick = async position => {
     setCheckedPositions(prev => {
       const newState = { ...prev };
       if (newState[position]) {
@@ -49,6 +60,14 @@ const PositionSelect = () => {
       return newState;
     });
   };
+
+  useEffect(() => {
+    setSelectedPositions(Object.keys(checkedPositions));
+  }, [checkedPositions]);
+
+  useEffect(() => {
+    console.log(selectedPositions);
+  }, [selectedPositions]);
 
   return (
     <div className="fieldBG">
