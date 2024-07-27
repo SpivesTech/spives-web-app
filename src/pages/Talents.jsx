@@ -15,13 +15,16 @@ import {
 import Navbar from '../components/Navbar';
 import playerData from '../components/PlayerCards/data';
 import { NewPlayerCard } from '../components/NewPlayerCard';
+import { useMainStore } from '../mainStore';
 
 const TalentsPage = () => {
   const [data, setData] = useState(null);
+  const { user } = useMainStore();
 
   useEffect(() => {
     setData(playerData);
-  }, []);
+    console.log(user);
+  }, [user]);
 
   if (!data) {
     return <Box>Loading...</Box>;

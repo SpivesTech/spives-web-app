@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Box,
@@ -16,13 +16,15 @@ import { Link as RouterLink } from 'react-router-dom';
 import '../../App.css';
 import axios from 'axios';
 import { jwtDecode } from 'jwt-decode';
+import { useMainStore } from '../../mainStore';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [user, setUser] = useState(null);
+  const { user, setUser } = useMainStore();
   const endpoint = 'https://spives-backend.onrender.com/api/auth/users/login/';
   const navigate = useNavigate();
+  console.log('user1', user);
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -34,11 +36,14 @@ const Login = () => {
     const res = await axios.post(endpoint, { email, password });
     sessionStorage.setItem('token', JSON.stringify(res.data.access_token));
     const decoded = jwtDecode(res.data.access_token);
-    setUser(decoded);
+    await setUser({ ...user, ...decoded });
+    localStorage.setItem('user', JSON.stringify(user));
     const userRoute = `/dashboard/${decoded.user_id}`;
-    navigate(userRoute);
-    console.log('user', userRoute);
+    navigate('/talents');
+    console.log('user2', user);
   };
+
+  useEffect(() => {});
 
   return (
     <div className="login fieldBG">

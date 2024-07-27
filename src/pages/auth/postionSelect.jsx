@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Grid, Image, Box, Icon, Text, Button } from '@chakra-ui/react';
 import { CheckCircleIcon } from '@chakra-ui/icons';
 import { useMainStore } from '../../mainStore';
+import { useNavigate } from 'react-router-dom';
 
 const PositionSelect = () => {
   const positions = [
@@ -31,12 +32,16 @@ const PositionSelect = () => {
   const [checkedPositions, setCheckedPositions] = useState({});
   const [selectedPositions, setSelectedPositions] = useState([]);
   const { user, setUser } = useMainStore();
+  const navigate = useNavigate();
 
   const handlePageSubmit = async () => {
     try {
       await setUser({ ...user, positions: selectedPositions });
     } catch (error) {
       console.error('Failed to update positions:', error);
+    } finally {
+      console.log(user);
+      navigate('/talents');
     }
   };
 
@@ -116,7 +121,7 @@ const PositionSelect = () => {
             </Box>
           ))}
         </Grid>
-        <Button>Create Profile</Button>
+        <Button onClick={() => handlePageSubmit()}>Create Profile</Button>
       </div>
     </div>
   );
