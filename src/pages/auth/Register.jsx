@@ -53,7 +53,7 @@ const Signup = () => {
         password,
       });
 
-      navigate('/talents');
+      navigate('/positionselect');
     } catch (error) {
       console.error('Registration failed:', error);
       alert('Registration failed. Please try again.');
