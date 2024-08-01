@@ -24,7 +24,7 @@ const ClubProfileSection = () => {
         </Box>
         <Box flex={1} ml={{ base: 0, lg: 10 }} px="58px">
           <Box textAlign="end">
-            <Heading as="h2" size="xl" mb={4} fontFamily="Adumu, Arial, sans-serif">
+            <Heading as="h2" size="xl" mb={6} fontFamily="Adumu, Arial, sans-serif">
               <Text as="span" color="navy">club</Text>
               <Text as="span" color="orange.400"> management</Text>
             </Heading>
