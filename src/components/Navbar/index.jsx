@@ -17,10 +17,10 @@ import { Link } from 'react-router-dom';
 function Navbar() {
   return (
     <Box className="header-navbar" position="sticky" top="0" zIndex="1000" bg="white">
-      <Flex alignItems="center" justifyContent="space-between" wrap="wrap" p={4}>
-        <Box className="feature-section">
+      <Flex alignItems="center" justifyContent="space-between" wrap="wrap" p={4} px="58px">
+        <Box className="feature-section" flex={1} mb={{ base: 10, lg: 0 }} maxW={{ lg: "35%" }}>
           <Link to="/">
-            <Image src="/images/spives.png" className="image-container" alt="spives logo" />
+            <Image src="/images/spives.png" className="image-container" alt="spives logo" maxW="100%" />
           </Link>
         </Box>
 

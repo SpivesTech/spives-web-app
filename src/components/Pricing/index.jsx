@@ -25,7 +25,7 @@ const PricingSection = () => {
       category: 'Clubs',
       plans: [
         { name: 'Basic', price: '$0' },
-        { name: 'Pro', price: '$30' },
+        { name: 'Pro', price: '$69' },
         { name: 'Custom', price: <PhoneIcon /> },
       ],
     },
@@ -33,38 +33,107 @@ const PricingSection = () => {
       category: 'Coaches',
       plans: [
         { name: 'Basic', price: '$0' },
-        { name: 'Pro', price: '$30' },
+        { name: 'Pro', price: '$20' },
       ],
     },
     {
       category: 'Players',
       plans: [
         { name: 'Basic', price: '$0' },
-        { name: 'Pro', price: '$30' },
+        { name: 'Pro', price: '$1' },
       ],
     },
   ];
 
-  const customContent = (
-    <List spacing={2} fontSize="sm">
-      <ListItem>
-        <ListIcon as={CheckIcon} color="green.500" />
-        Everything in PRO +
-      </ListItem>
-      <ListItem>
-        <ListIcon as={CheckIcon} color="green.500" />
-        Wearables for Player Data Collection
-      </ListItem>
-      <ListItem>
-        <ListIcon as={CheckIcon} color="green.500" />
-        Comprehensive Performance Analytics
-      </ListItem>
-      <ListItem>
-        <ListIcon as={CheckIcon} color="green.500" />
-        Priority Support
-      </ListItem>
-    </List>
-  );
+  const getPlanContent = (category, planName) => {
+    if (category === 'Clubs') {
+      if (planName === 'Basic') {
+        return (
+          <List spacing={2} fontSize="sm">
+            <ListItem>
+              <ListIcon as={CheckIcon} color="green.500" />
+              Basic club management features
+            </ListItem>
+            <ListItem>
+              <ListIcon as={CheckIcon} color="green.500" />
+              Limited player profiles
+            </ListItem>
+          </List>
+        );
+      } else if (planName === 'Pro') {
+        return (
+          <List spacing={2} fontSize="sm">
+            <ListItem>
+              <ListIcon as={CheckIcon} color="green.500" />
+              Advanced club management features
+            </ListItem>
+            <ListItem>
+              <ListIcon as={CheckIcon} color="green.500" />
+              Unlimited player profiles
+            </ListItem>
+            <ListItem>
+              <ListIcon as={CheckIcon} color="green.500" />
+              Performance analytics
+            </ListItem>
+          </List>
+        );
+      } else if (planName === 'Custom') {
+        return (
+          <List spacing={2} fontSize="sm">
+            <ListItem>
+              <ListIcon as={CheckIcon} color="green.500" />
+              Everything in PRO +
+            </ListItem>
+            <ListItem>
+              <ListIcon as={CheckIcon} color="green.500" />
+              Wearables for Player Data Collection
+            </ListItem>
+            <ListItem>
+              <ListIcon as={CheckIcon} color="green.500" />
+              Comprehensive Performance Analytics
+            </ListItem>
+            <ListItem>
+              <ListIcon as={CheckIcon} color="green.500" />
+              Priority Support
+            </ListItem>
+          </List>
+        );
+      }
+    } else if (category === 'Coaches' || category === 'Players') {
+      if (planName === 'Basic') {
+        return (
+          <List spacing={2} fontSize="sm">
+            <ListItem>
+              <ListIcon as={CheckIcon} color="green.500" />
+              Simple Profile
+            </ListItem>
+            <ListItem>
+              <ListIcon as={CheckIcon} color="green.500" />
+              Limited access
+            </ListItem>
+          </List>
+        );
+      } else if (planName === 'Pro') {
+        return (
+          <List spacing={2} fontSize="sm">
+            <ListItem>
+              <ListIcon as={CheckIcon} color="green.500" />
+              Advanced features
+            </ListItem>
+            <ListItem>
+              <ListIcon as={CheckIcon} color="green.500" />
+              Full access
+            </ListItem>
+            <ListItem>
+              <ListIcon as={CheckIcon} color="green.500" />
+              Verified Profile
+            </ListItem>
+          </List>
+        );
+      }
+    }
+    return null;
+  };
 
   return (
     <Flex
@@ -74,21 +143,23 @@ const PricingSection = () => {
       bgSize="cover"
       justifyContent="center"
       alignItems="center"
+      px={4}
     >
       <Box
-        w="40vw"
+        w={{ base: "95vw", md: "80vw", lg: "60vw" }}
         mx="auto"
-        bg="rgba(0,0,0,0.7)"
-        p={10}
+        bg="rgba(0, 0, 102, 0.7)"
+        p={{ base: 6, md: 8, lg: 12 }}
         borderRadius="xl"
+        boxShadow="2xl"
       >
-        <Heading as="h2" size="2xl" color="white" textAlign="center" mb={10}>
+        <Heading as="h2" size={{ base: "xl", md: "2xl" }} color="white" textAlign="center" mb={10} fontFamily="Montserrat, sans-serif">
           Pricing
         </Heading>
-        <Flex gap="30px">
+        <Flex direction={{ base: "column", md: "row" }} gap={{ base: "30px", md: "40px" }}>
           {pricingData.map(section => (
-            <VStack key={section.category} w="33.33%" spacing={4}>
-              <Text fontSize="xl" fontWeight="bold" color="white">
+            <VStack key={section.category} w={{ base: "100%", md: "33.33%" }} spacing={6} bg="rgba(255, 255, 255, 0.1)" p={6} borderRadius="lg">
+              <Text fontSize={{ base: "xl", md: "2xl" }} fontWeight="bold" color="white">
                 {section.category}
               </Text>
               {section.plans.map(plan => (
@@ -102,12 +173,12 @@ const PricingSection = () => {
                   onClose={() => setHoveredItem(null)}
                 >
                   <PopoverTrigger>
-                    <HStack width="100%">
+                    <HStack width="100%" spacing={2} justifyContent="space-between">
                       <Button
                         variant="outline"
                         color="white"
-                        w="70%"
-                        _hover={{ bg: 'blue.700' }}
+                        flex="1"
+                        _hover={{ bg: '#FF7434' }}
                         onMouseEnter={() =>
                           setHoveredItem(`${section.category}-${plan.name}`)
                         }
@@ -115,19 +186,16 @@ const PricingSection = () => {
                       >
                         {plan.name}
                       </Button>
-                      <Button
-                        w="30%"
-                        variant="outline"
-                        color="white"
-                        _hover={{ bg: 'transparent' }}
-                      >
+                      <Text color="white" fontSize="lg" fontWeight="bold" minWidth="60px" textAlign="right">
                         {plan.price}
-                      </Button>
+                      </Text>
                     </HStack>
                   </PopoverTrigger>
                   {plan.price && (
-                    <PopoverContent bg="gray.700" borderColor="gray.600">
-                      <PopoverBody color="white">{customContent}</PopoverBody>
+                    <PopoverContent bg="gray.800" borderColor="gray.600">
+                      <PopoverBody color="white" textAlign="left">
+                        {getPlanContent(section.category, plan.name)}
+                      </PopoverBody>
                     </PopoverContent>
                   )}
                 </Popover>

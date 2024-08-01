@@ -41,7 +41,7 @@ const HeroSection = () => {
             create a <Text as="span" color="#FF9434">player card</Text> now 
             
           </Text>
-          <Button as={RouterLink} mt={4}>
+          <Button as={RouterLink} mt={4} size="md" colorScheme="blue">
             Get Started
           </Button>
         </div>
